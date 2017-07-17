@@ -4,6 +4,8 @@ from functools import wraps
 import time
 
 def stopwatch(func):
+    """Decorator used for timing functions."""
+    
     @wraps(func)
     def wrapper(*args, **kw):
         t = time.time()
@@ -14,13 +16,3 @@ def stopwatch(func):
 
     return wrapper
 
-
-#debug
-
-@stopwatch
-def tester(n, r, **kwargs):
-    sqr = [s**r for s in range(n)]
-    return sum(sqr)
-
-
-#tester(n=78976, r=2)
